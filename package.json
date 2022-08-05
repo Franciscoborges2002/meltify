@@ -1,0 +1,23 @@
+{
+  "name": "meltify",
+  "version": "1.0.0",
+  "main": "sec/index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ./src/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Franciscoborges2002/meltify.git"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "steam-inventory": "^1.0.5",
+    "steam-totp": "^2.1.2",
+    "steam-user": "^4.24.6",
+    "tf2": "^3.0.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
