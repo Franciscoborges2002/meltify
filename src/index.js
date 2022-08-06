@@ -17,16 +17,17 @@ const logOnOptions = {
 	twoFactorCode: SteamTotp.generateAuthCode(config.sharedSecret) 
 };
 
-user.logOn(logOnOptions);
+user.logOn(logOnOptions);//Login
 
-let tf2 = new TeamFortress2(user);
+let tf2 = new TeamFortress2(user);//creating tf2 object
 
+//When user logged on steam
 user.on('loggedOn', () => {
     user.getPersonas([user.steamID], (personas) => {
         console.log('Logged in as ' + user.accountInfo.name + " [ " + user.steamID + " ].");  
 
         user.setPersona(1);
-
+            
         user.gamesPlayed([440]);
     });
 });
@@ -43,16 +44,28 @@ user.on('loggedOn', () => {
     Refined -> Reclaimed x3 = 23
  */
 
+//When connected to tf2
+tf2.on('connectedToGC', ()=>{
+    console.log("The user is connected")
+})
+
+//Get the inventory
+
+
+//
+//When inventory is loaded
 tf2.on('backpackLoaded', () =>{
-    console.log(tf2.backpack[85])
+    console.log(tf2.backpack)
+    //tf2.craft([11956774768,11956774827,11956774801], 5)
 })
 
 tf2.on('craftingComplete', (recipe, itemsGained)=>{
     console.log(recipe)
-    consolep.log(itemsGained)
+    console.log(itemsGained)
+    console.log(tf2.haveGCSession)
 })
 
-tf2.craft([11923481523,11923481590,11925647735], 3)
+
 
 /* user.getOwnedProfileItems((err, response) =>{
     console.log("pois e")
