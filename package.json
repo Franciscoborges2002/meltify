@@ -4,16 +4,20 @@
   "main": "sec/index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon ./src/index"
+    "dev": "nodemon ./src/index",
+    "devTerm": "nodemon ./src/terminal"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Franciscoborges2002/meltify.git"
   },
   "dependencies": {
+    "cli-spinners": "^2.7.0",
     "dotenv": "^16.0.1",
+    "ora": "^6.1.2",
     "steam-totp": "^2.1.2",
     "steam-user": "^4.24.6",
+    "terminal-kit": "^2.5.1",
     "tf2": "^3.0.2"
   },
   "devDependencies": {
