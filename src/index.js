@@ -49,25 +49,15 @@ tf2.on('connectedToGC', ()=>{
     console.log("The user is connected")
 })
 
-//Get the inventory
-
-
-//
 //When inventory is loaded
 tf2.on('backpackLoaded', () =>{
     console.log(tf2.backpack)
-    //tf2.craft([11956774768,11956774827,11956774801], 5)
+    tf2.craft([11956774876], 22)
 })
 
+//When a craft is completed
 tf2.on('craftingComplete', (recipe, itemsGained)=>{
     console.log(recipe)
     console.log(itemsGained)
     console.log(tf2.haveGCSession)
 })
-
-
-
-/* user.getOwnedProfileItems((err, response) =>{
-    console.log("pois e")
-    console.log(response)
-}) */

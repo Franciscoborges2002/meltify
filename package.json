@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "dotenv": "^16.0.1",
-    "steam-inventory": "^1.0.5",
     "steam-totp": "^2.1.2",
     "steam-user": "^4.24.6",
     "tf2": "^3.0.2"
