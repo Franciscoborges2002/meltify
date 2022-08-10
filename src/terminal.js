@@ -48,7 +48,6 @@ function firstQuestion(){
             response.x ,
             response.y
         ) ;
-        process.exit() ;
     } ) ;
 }
 
@@ -67,10 +66,10 @@ function secondQuestion(){
             response.x ,
             response.y
         ) ;
-        process.exit() ;
     } ) ;
 }
 
+firstQuestion()
 secondQuestion();
 
 /* term.inputField({

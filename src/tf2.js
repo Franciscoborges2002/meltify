@@ -20,6 +20,7 @@ const logOnOptions = {
 user.logOn(logOnOptions);//Login
 
 let tf2 = new TeamFortress2(user);//creating tf2 object
+var bpItems = [];
 
 //When user logged on steam
 user.on('loggedOn', () => {
@@ -51,22 +52,48 @@ tf2.on('connectedToGC', ()=>{
 
 //When inventory is loaded
 tf2.on('backpackLoaded', () =>{
-    console.log(tf2.backpack)
-    tf2.craft([11956774876], 22)
+    //console.log(tf2.backpack)
+    var refined = 0, reclaimed = 0, scrap = 0;
+    var refinedIds = [], reclaimedIds = [], scrapIds = [];
+    for(var i = 0; i < tf2.backpack.length; i++){
+        if(tf2.backpack[i].def_index === 5000 && tf2.backpack[i].level === 1){
+            scrapIds.push(tf2.backpack[i].id)
+            scrap++;
+        }
+
+        if(tf2.backpack[i].def_index === 5001 && tf2.backpack[i].level === 2){
+            reclaimedIds.push(tf2.backpack[i].id)
+            reclaimed++;
+        }
+
+        if(tf2.backpack[i].def_index === 5002 && tf2.backpack[i].level === 3){
+            refinedIds.push(tf2.backpack[i].id)
+            refined++;
+        }
+    }
+
+    console.log(scrapIds)
+    console.log(reclaimedIds)
+    console.log(refinedIds)
+
+    console.log(scrap)
+    console.log(reclaimed)
+    console.log(refined)
+    //tf2.craft([11956774988])
 })
 
 //When a craft is completed
 tf2.on('craftingComplete', (recipe, itemsGained)=>{
-    console.log(recipe)
+    /* console.log(recipe)
     console.log(itemsGained)
-    console.log(tf2.haveGCSession)
+    console.log(tf2.haveGCSession) */
 })
 
-module.exports = {
-    meltReclaimed(){
-
-    },
-    meltRefined(){
-
-    }
+function getItems(){
+    bpItems = tf2.backpack;
 }
+
+tf2.on('itemChanged', (oldItem, newItem)=>{
+    console.log(oldItem)
+    console.log(newItem)
+})
