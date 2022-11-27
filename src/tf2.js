@@ -6,6 +6,10 @@ const config = require('./config.js');
  
 let user = new SteamUser();
 
+//iiciar vars para saber quantos de quanto tem
+var refined = 0, reclaimed = 0, scrap = 0;
+var refinedIds = [], reclaimedIds = [], scrapIds = [];
+
 
 if(config.sharedSecret === ''){
     console.warn('You don\'t have the shared Secret, you need to insert the steam guard code.')
@@ -53,8 +57,7 @@ tf2.on('connectedToGC', ()=>{
 //When inventory is loaded
 tf2.on('backpackLoaded', () =>{
     //console.log(tf2.backpack)
-    var refined = 0, reclaimed = 0, scrap = 0;
-    var refinedIds = [], reclaimedIds = [], scrapIds = [];
+
     for(var i = 0; i < tf2.backpack.length; i++){
         if(tf2.backpack[i].def_index === 5000 && tf2.backpack[i].level === 1){
             scrapIds.push(tf2.backpack[i].id)
@@ -72,6 +75,11 @@ tf2.on('backpackLoaded', () =>{
         }
     }
 
+    oi()
+    
+})
+
+function oi(){
     console.log(scrapIds)
     console.log(reclaimedIds)
     console.log(refinedIds)
@@ -79,8 +87,8 @@ tf2.on('backpackLoaded', () =>{
     console.log(scrap)
     console.log(reclaimed)
     console.log(refined)
-    //tf2.craft([11956774988])
-})
+    tf2.craft([reclaimedIds[0], reclaimedIds[1], reclaimedIds[2] ])
+}
 
 //When a craft is completed
 tf2.on('craftingComplete', (recipe, itemsGained)=>{
