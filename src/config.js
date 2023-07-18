@@ -10,7 +10,7 @@ module.exports = {
     minimumReclaimed: 5,
     minimumRefined: 5,
 
-    minimumScrap: 5,
-    minimumReclaimed: 5,
-    minimumRefined: 5,
+    scrapWanted: 5,
+    reclaimedWanted: 5,
+    refinedWanted: 5,
 }

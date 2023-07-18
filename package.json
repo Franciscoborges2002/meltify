@@ -4,9 +4,7 @@
   "main": "sec/index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon ./src/tf2",
-    "devTerm": "nodemon ./src/terminal",
-    "term": "node ./src/terminal.js"
+    "dev": "nodemon ./src/tf2"
   },
   "repository": {
     "type": "git",

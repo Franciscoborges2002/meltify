@@ -6,4 +6,8 @@ This is the program for you.
 
 ## TODO
  - [ ] Make a basic program to melt one metal/craft
- - [ ] Make frontend
+
+# How to use it:
+ 1. Run `npm i` to install all libraries necessary to run the project
+ 2. Change with you account information and the metal wanted in src/config.js
+ 3. Wait to the program to run and voilá, you have you metal how you wanted.
